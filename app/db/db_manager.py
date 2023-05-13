@@ -1,5 +1,3 @@
-import logging
-
 import psycopg2
 from psycopg2.pool import ThreadedConnectionPool
 
@@ -22,7 +20,7 @@ class DBManager:
             cursor.execute("""CREATE TABLE IF NOT EXISTS wallets
             (
                 id SERIAL PRIMARY KEY,
-                address CHARACTER VARYING(1) NOT NULL UNIQUE
+                address CHARACTER VARYING(10000) NOT NULL UNIQUE
             );""")
         self.put_connection(connection=connection)
 
